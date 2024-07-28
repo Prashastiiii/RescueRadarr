@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chatbot</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='chat.css') }}"
+    />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div id="chat-history" class="chat-history"></div>
+      <input
+        id="user-input"
+        type="text"
+        placeholder="Type a message..."
+        autocomplete="off"
+      />
+      <button id="send-button">Send</button>
+    </div>
+
+    <script>
+      document.getElementById("send-button").onclick = function () {
+        sendMessage();
+      };
+
+      document
+        .getElementById("user-input")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            sendMessage();
+          }
+        });
+
+      function sendMessage() {
+        const userInput = document.getElementById("user-input").value;
+        if (userInput.trim() === "") return;
+
+        appendMessage("You: " + userInput);
+        fetch("/get_response", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_input: userInput }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            appendMessage("Bot: " + data.response);
+            if (data.learn) {
+              const newResponse = prompt(
+                "Bot: I don't know the answer to that. What should I respond?"
+              );
+              if (newResponse) {
+                fetch("/learn_response", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    user_input: userInput,
+                    new_response: newResponse,
+                  }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    appendMessage("Bot: " + data.response);
+                  });
+              }
+            }
+          });
+        document.getElementById("user-input").value = "";
+      }
+
+      function appendMessage(message) {
+        const chatHistory = document.getElementById("chat-history");
+        const messageElement = document.createElement("div");
+        messageElement.textContent = message;
+        chatHistory.appendChild(messageElement);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+/* About.css */
+body{
+  justify-self: center;
+}
+.about {
+  background-color: #f9f9f9;
+  padding: 40px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  width: 700px;
+  margin-left: 350px;
+}
+
+.about h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #666;
+}

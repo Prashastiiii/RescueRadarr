@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flood Prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style1.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Flood Prediction</h1>
+      <div class="form-container">
+        <form method="post" class="form">
+          <div class="form-group">
+            <label for="magnitude">Magnitude:</label>
+            <input type="number" step="any" name="magnitude" required />
+          </div>
+          <div class="form-group">
+            <label for="depth">Depth:</label>
+            <input type="number" step="any" name="depth" required />
+          </div>
+          <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input type="number" step="any" name="latitude" required />
+          </div>
+          <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input type="number" step="any" name="longitude" required />
+          </div>
+          <button type="submit">Predict</button>
+        </form>
+        <div class="image-container">
+          <img
+            src="{{ url_for('static', filename='flood.svg') }}"
+            alt="Image"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./static/styles.css" />
+  </head>
+  <body>
+    <h1>Welcome to Earthquake Predictor</h1>
+
+    <form action="{{ url_for('prediction') }}" method="post">
+      <label for="place">Place:</label>
+      <input type="text" id="place" name="place" required /><br />
+      <label for="a">Longitude:</label>
+      <input type="text" id="a" name="a" required /><br />
+      <label for="b">Latitude:</label>
+      <input type="text" id="b" name="b" required /><br />
+      <label for="c">Height above sea level:</label>
+      <input type="text" id="c" name="c" required /><br />
+      <input type="submit" value="Predict" />
+    </form>
+  </body>
+</html>

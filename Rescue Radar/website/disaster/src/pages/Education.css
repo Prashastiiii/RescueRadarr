@@ -1,0 +1,63 @@
+.education {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin-top: 0px;
+ 
+}
+
+h2 {
+  margin-top: 0px;
+  font-size: 2em;
+ color:white;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: xxx-large;
+}
+
+.resources {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+}
+
+.videos, .articles {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: 500px; 
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none; 
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .resources {
+    flex-direction: column;
+    align-items: center;
+  }
+}

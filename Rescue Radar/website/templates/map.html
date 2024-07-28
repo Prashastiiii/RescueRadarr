@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7ad4ca7ab13e7ad50d82a08569bba17c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+        <div style="
+            position: fixed;
+            bottom: 50px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border:2px solid grey;
+            z-index:9999;
+            font-size:14px;
+            padding: 10px;
+            ">
+            <strong>Severity Levels</strong><br>
+            <i class="fa fa-map-marker fa-2x" style="color:green"></i>&nbsp;No Severity (0-4)<br>
+            <i class="fa fa-map-marker fa-2x" style="color:orange"></i>&nbsp;Low Severity (4-6)<br>
+            <i class="fa fa-map-marker fa-2x" style="color:orange"></i>&nbsp;Moderate Severity (6-8)<br>
+            <i class="fa fa-map-marker fa-2x" style="color:red"></i>&nbsp;High Severity (8-9)<br>
+            <i class="fa fa-map-marker fa-2x" style="color:red"></i>&nbsp;Very High Severity (9+)
+        </div>
+        
+    
+            <div class="folium-map" id="map_7ad4ca7ab13e7ad50d82a08569bba17c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7ad4ca7ab13e7ad50d82a08569bba17c = L.map(
+                "map_7ad4ca7ab13e7ad50d82a08569bba17c",
+                {
+                    center: [36.5748441, 139.2394179],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ae9645ad9c4ef3bbb50818ba20d0c183 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "Esri, USGS, NOAA", "detectRetina": false, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_ae9645ad9c4ef3bbb50818ba20d0c183.addTo(map_7ad4ca7ab13e7ad50d82a08569bba17c);
+        
+    
+            var marker_c5186a745d47db55e5740a2f6d3b3d0a = L.marker(
+                [36.5748441, 139.2394179],
+                {}
+            ).addTo(map_7ad4ca7ab13e7ad50d82a08569bba17c);
+        
+    
+            var icon_713e25f28ced005806fd924a92b27282 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c5186a745d47db55e5740a2f6d3b3d0a.setIcon(icon_713e25f28ced005806fd924a92b27282);
+        
+    
+        var popup_2e9d50d24c898bf01dd7bfe10f698d6b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_514d400d745365cef714775dd67afbfc = $(`<div id="html_514d400d745365cef714775dd67afbfc" style="width: 100.0%; height: 100.0%;">         <div style="font-size: 16px;">             <strong>Place:</strong> japan<br>             <strong>Prediction:</strong> 4<br>             <strong>Severity:</strong> Low         </div>         </div>`)[0];
+                popup_2e9d50d24c898bf01dd7bfe10f698d6b.setContent(html_514d400d745365cef714775dd67afbfc);
+            
+        
+
+        marker_c5186a745d47db55e5740a2f6d3b3d0a.bindPopup(popup_2e9d50d24c898bf01dd7bfe10f698d6b)
+        ;
+
+        
+    
+</script>
+</html>
