@@ -9,4 +9,4 @@ run in vs code :- python app.py,
                   
                   python hey.py 
                   
-to run the website
+for fully functional website
